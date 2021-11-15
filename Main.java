@@ -1,61 +1,36 @@
 package com.company;
 
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.Random;
+
 
 public class Main {
 
     public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
 
-  /* 1    for(int i=20; i<=2000;i=i+5){
-          System.out.println(i);
-      }*/
-
-   /* 2     int sumTotal=0;
-        for(int i=1;i<11;i++){
-            sumTotal= sumTotal+i;
-            System.out.println(String.format("sum now = %d",sumTotal));
+        Random lotoNumbers = new Random();
+        int tryTimes = 0;
+        int loto[] = new int[6];
+        int extraNumber = lotoNumbers.nextInt(1, 7);
+        while (tryTimes < 6) {
+            loto[tryTimes] = lotoNumbers.nextInt(1, 50);
+            tryTimes = tryTimes + 1;
         }
-        System.out.println(String.format("the total is: %d",sumTotal));*/
 
-        /* 3 for(int i=5; i>=-10;i--) {
-            System.out.println(i);*/
-
-
-       /* 4  for(int i=1; i<=100;i++){
-           if(i%7==0){
-            System.out.println(i);}
-        }*/
-
-        /* 5 for(int i=1; i<=100;i++){
-            if(i%2==0){
-                System.out.println(i);}
-        }*/
-
-       /*6  for(int i=1; i<=100;i++){
-            if(i%2 != 0){
-                System.out.println(i);}
-        }*/
-
-        // 5 and 7 are the same
-        // 6 and 8 are the same
-
-       /* 9 int totalCheck=0;
-        System.out.println("input number from 1-100:");
-        int inputNum= scanner.nextInt();
-        for(int i=1;i<100;i++){
-            totalCheck = totalCheck + inputNum;
-            if(totalCheck>100){
-                System.out.println("done");
-                break;
-            }else{
-                System.out.println("input number from 1-100:");
-                inputNum= scanner.nextInt();*/
+        for (int check1 = 5; check1 > 1; check1--) {
+            for (int check = check1 - 1; check > 0; check--) {
+                if (loto[check1] == loto[check]) {
+                    loto[check] = lotoNumbers.nextInt(1, 50);
+                }
             }
+
+
         }
+        for (int q = 0; q < 6; q++) {
+            System.out.println(loto[q]);
+        }
+
+            System.out.print("  extra number is: " + extraNumber);
+
     }
+
 }
-
-
-
